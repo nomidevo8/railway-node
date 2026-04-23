@@ -4,7 +4,7 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "start": "tsx server.ts"
+    "start": "node api.js && tsx server.ts"
   },
   "dependencies": {
     "@google/genai": "latest",

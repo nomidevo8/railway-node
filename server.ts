@@ -19,12 +19,13 @@ app.post("/voice", async (req, res) => {
 
     const audioBuffer = await generateVoice(params);
 
-    res.set({
-      "Content-Type": "audio/wav",
-      "Content-Length": audioBuffer.length
-    });
+    const base64Audio = audioBuffer.toString("base64");
 
-    res.send(audioBuffer);
+    res.json({
+      success: true,
+      audio: base64Audio,
+      mime: "audio/wav"
+    });
 
   } catch (err) {
     console.error(err);
