@@ -9,6 +9,10 @@ const app = express();
 app.use(cors());
 app.use(express.json({ limit: "10mb" }));
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the Gemini Voice Generation API. POST to /voice with text, voice, emotion, speed, and pitch parameters.");
+});
+
 app.post("/voice", async (req, res) => {
   try {
     const params = req.body;
